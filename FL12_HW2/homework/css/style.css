@@ -15,6 +15,10 @@
 		}
 	}
 
+.tm-sidebar{
+	z-index: 16;
+}
+
 .tm-nav-item-link:hover{
 	background-color: lightskyblue;
 	color: #fff;
@@ -177,8 +181,7 @@ section::before{
 		max-width: 100%;
 	}
 	.tm-banner, .padding-medium, .carousel{
-		padding-top: 0;
-		padding-bottom: 0;
+		padding: 0 40px;
 	}
 	h2, h2.tm-section-title{
 		color: lightskyblue;
@@ -216,8 +219,5 @@ section::before{
 	}
 	section::before{
 		content: none;
-	}
-	p.tm-section-description{
-		line-height: 1.4;
 	}
 }
