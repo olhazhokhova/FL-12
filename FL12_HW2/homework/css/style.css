@@ -75,12 +75,6 @@
 .tm-banner-inner{
 	background-color: #fff;
 }
-.tm-banner-text{
-	text-shadow: 5px 5px 3px #333;
-	-webkit-animation: slideText 2s ease-in-out;
-    animation: slideText 2s ease-in-out;
-    position: relative;
-}
 .flex-2-col{
 	display: flex;
 	align-items: center;
@@ -167,6 +161,12 @@
 
 
 @media screen{
+	.tm-banner-text{
+		text-shadow: 5px 5px 3px #333;
+		-webkit-animation: slideText 2s ease-in-out;
+	    animation: slideText 2s ease-in-out;
+	    position: relative;
+	}
 	.flex-2-col .tm-team-description-container{
 		width: 360px;
 	}
