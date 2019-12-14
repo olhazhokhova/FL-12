@@ -32,7 +32,7 @@
 	}
 }
 
-@mixin highlight ($width, $top){
+.highlight{
 	position: relative;
 	z-index: 1;
 
@@ -40,18 +40,11 @@
 		position: absolute;
 		display: block;
 		background-color: $colorAwesome;
-		width: $width;
 		height: 50px;
-		top: $top;
 		z-index: -1;
 		content: '';
 	}
 }
-
-.m-auto{
-	margin: 0 auto;
-}
-
 
 body{
 	padding: 0;
@@ -74,7 +67,7 @@ a{
 	background-size: cover;
 	background-position: 50%;
 	border-radius: 0 0 770px / 290px 0;
-	@extend .m-auto;
+	margin: 0 auto;
 }
 
 .header-wrap{
@@ -84,7 +77,7 @@ a{
 	box-sizing: border-box;
 	color: $headerTextColor;
 	font-family: $headerFontHeading;
-	@extend .m-auto;
+	margin: 0 auto;
 
 	.login{
 		color: #ffffff;
@@ -126,8 +119,12 @@ a{
     line-height: 72px;
     width: 500px;
     margin: 72px 0 35px;
+    @extend .highlight;
 
-    @include highlight(303px, 93px);
+    &:before{
+    	width: 303px;
+    	top: 93px;
+    }
 }
 
 .header_text{
@@ -141,11 +138,11 @@ a{
 main.section{
 	width: 1200px;
 	text-align: center;
-	@extend .m-auto;
+	margin: 0 auto;
 
 	.section_card_wrap{
 		width: 1120px;
-		@extend .m-auto;
+		margin: 0 auto;
 	}
 
 	.section_text{
@@ -156,10 +153,11 @@ main.section{
 		font-weight: 600;
 		line-height: 42px;
 		display: inline-block;
-
-		@include highlight(190px, -10px);
+		@extend .highlight;
 
 		&:before{
+			width: 190px;
+			top: -10px;
 			right: 12px;
 		}
 	}
@@ -248,10 +246,11 @@ main.section{
 		font-weight: 600;
 		margin: 0;
 		font-family: $headerFontHeading;
-
-		@include highlight(65px, -10px);
+		@extend .highlight;
 
 		&:before{
+			width: 65px;
+			top: -10px;
 			left: 120px;
 		}
 
@@ -277,7 +276,7 @@ main.section{
 		justify-content: space-between;
 		color: $colorTextFooter;
 		max-width: 1530px;
-		@extend .m-auto;
+		margin: 0 auto;
 	}
 
 	.footer_text{
