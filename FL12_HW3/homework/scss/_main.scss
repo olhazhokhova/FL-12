@@ -32,6 +32,22 @@
 	}
 }
 
+@mixin highlight ($width, $top){
+	position: relative;
+	z-index: 1;
+
+	&:before{
+		position: absolute;
+		display: block;
+		background-color: $colorAwesome;
+		width: $width;
+		height: 50px;
+		top: $top;
+		z-index: -1;
+		content: '';
+	}
+}
+
 .m-auto{
 	margin: 0 auto;
 }
@@ -109,20 +125,9 @@ a{
     font-weight: 800;
     line-height: 72px;
     width: 500px;
-    position: relative;
-	z-index: 1;
     margin: 72px 0 35px;
 
-    &:before{
-    	position: absolute;
-    	display: block;
-    	background-color: $colorAwesome;
-    	width: 303px;
-	    height: 50px;
-		top: 93px;
-	    z-index: -1;
-	    content: '';
-	}
+    @include highlight(303px, 93px);
 }
 
 .header_text{
@@ -150,19 +155,12 @@ main.section{
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 600;
 		line-height: 42px;
-		position: relative;
 		display: inline-block;
 
+		@include highlight(190px, -10px);
+
 		&:before{
-			position: absolute;
-			display: block;
-			background-color: $colorAwesome;
-			width: 190px;
-			height: 50px;
 			right: 12px;
-			top: -10px;
-			z-index: -1;
-			content: '';
 		}
 	}
 
@@ -183,22 +181,22 @@ main.section{
 
 		&:first-child{
 			.section_card_img{
-				width: 430px;
-				min-width: 430px;
+				width: map-get($sectionCardImg, 'width1');
+				min-width: map-get($sectionCardImg, 'width1');
 			}
 		}
 
 		&:nth-child(2){
 			.section_card_img{
-				width: 415px;
-				min-width: 415px;
+				width: map-get($sectionCardImg, 'width2');
+				min-width: map-get($sectionCardImg, 'width2');
 			}
 		}
 
 		&:last-child{
 			.section_card_img{
-				width: 460px;
-				min-width: 460px;
+				width: map-get($sectionCardImg, 'width3');
+				min-width: map-get($sectionCardImg, 'width3');
 			}
 
 			.section_card_heading{
@@ -241,37 +239,30 @@ main.section{
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    position: relative;
     margin-bottom: -70px;
+    position: relative;
 
     .section_banner_heading{
-    	font-size: 31px;
-    	line-height: 40px;
-    	font-weight: 600;
-    	margin: 0;
-    	position: relative;
-    	z-index: 1;
-    	font-family: $headerFontHeading;
+		font-size: 31px;
+		line-height: 40px;
+		font-weight: 600;
+		margin: 0;
+		font-family: $headerFontHeading;
 
-    	&:before{
-    		position: absolute;
-		    display: block;
-		    background-color: $colorAwesome;
-		    width: 65px;
-		    height: 50px;
-		    left: 120px;
-		    top: -10px;
-		    z-index: -1;
-		    content: '';
-    	}
-    }
+		@include highlight(65px, -10px);
 
-    .section_banner_text{
-    	color: #c0c3b3;
-    	font-size: 17px;
-    }
+		&:before{
+			left: 120px;
+		}
 
-    .section_banner_button{
+	}
+
+	.section_banner_text{
+		color: #c0c3b3;
+		font-size: 17px;
+	}
+
+	.section_banner_button{
 		@include button;
 	}
 }

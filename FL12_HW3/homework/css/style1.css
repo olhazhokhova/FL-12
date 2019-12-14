@@ -54,6 +54,8 @@ a {
     font-weight: 700;
     font-size: 16px;
     margin-right: 153px; }
+    .header-wrap .header_button:hover {
+      background-color: #8ccc00; }
 
 .landing-logo {
   width: 120px;
@@ -78,9 +80,9 @@ a {
   font-weight: 800;
   line-height: 72px;
   width: 500px;
+  margin: 72px 0 35px;
   position: relative;
-  z-index: 1;
-  margin: 72px 0 35px; }
+  z-index: 1; }
   .header_heading:before {
     position: absolute;
     display: block;
@@ -110,18 +112,20 @@ main.section {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
     line-height: 42px;
+    display: inline-block;
     position: relative;
-    display: inline-block; }
+    z-index: 1; }
     main.section .section_text:before {
       position: absolute;
       display: block;
       background-color: #14a0c7;
       width: 190px;
       height: 50px;
-      right: 12px;
       top: -10px;
       z-index: -1;
       content: ''; }
+    main.section .section_text:before {
+      right: 12px; }
   main.section .section_card {
     background-color: #21232e;
     padding: 20px;
@@ -169,26 +173,27 @@ main.section {
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  position: relative;
-  margin-bottom: -70px; }
+  margin-bottom: -70px;
+  position: relative; }
   .section_banner .section_banner_heading {
     font-size: 31px;
     line-height: 40px;
     font-weight: 600;
     margin: 0;
+    font-family: "Source Sans Pro", sans-serif;
     position: relative;
-    z-index: 1;
-    font-family: "Source Sans Pro", sans-serif; }
+    z-index: 1; }
     .section_banner .section_banner_heading:before {
       position: absolute;
       display: block;
       background-color: #14a0c7;
       width: 65px;
       height: 50px;
-      left: 120px;
       top: -10px;
       z-index: -1;
       content: ''; }
+    .section_banner .section_banner_heading:before {
+      left: 120px; }
   .section_banner .section_banner_text {
     color: #c0c3b3;
     font-size: 17px; }
@@ -212,6 +217,8 @@ main.section {
     width: 140px;
     font-weight: 700;
     font-size: 16px; }
+    .section_banner .section_banner_button:hover {
+      background-color: #8ccc00; }
 
 .footer {
   background-color: #21232e;
