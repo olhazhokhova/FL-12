@@ -1,3 +1,11 @@
+$white: #fff;
+
+$sectionCardImg: (
+	'width1' : 430px,
+	'width2' : 415px,
+	'width3' : 460px,
+);
+
 @mixin button($color: white) {
 	display: inline-block;
 	text-align: center;
@@ -68,25 +76,48 @@ a{
 	background-position: 50%;
 	border-radius: 0 0 770px / 290px 0;
 	margin: 0 auto;
-}
 
-.header-wrap{
-	width: 1540px;
-	max-width: 100%;
-	padding: 20px;
-	box-sizing: border-box;
-	color: $headerTextColor;
-	font-family: $headerFontHeading;
-	margin: 0 auto;
+	.header-wrap{
+		width: 1540px;
+		max-width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+		color: $headerTextColor;
+		font-family: $headerFontHeading;
+		margin: 0 auto;
 
-	.login{
-		color: #ffffff;
-		font-size: 20px;
+		.login{
+			color: #ffffff;
+			font-size: 20px;
+		}
+
+		.header_button{
+			@include button;
+			margin-right: 153px;
+		}
 	}
 
-	.header_button{
-		@include button;
-		margin-right: 153px;
+	.header_heading{
+		font-family: $headerFontHeading;
+		font-size: 72px;
+		font-weight: 800;
+		line-height: 72px;
+		width: 500px;
+		margin: 72px 0 35px;
+		@extend .highlight;
+
+		&:before{
+			width: 303px;
+			top: 93px; 
+		}
+	}
+
+	.header_text{
+		font-family: $headerFontText;
+		line-height: 24px;
+		font-size: 17px;
+		white-space: pre-line;
+		margin-bottom: 62px;
 	}
 }
 
@@ -110,29 +141,6 @@ a{
 		font-size: 10px;
 		font-weight: 300;
 	}
-}
-
-.header_heading{
-	font-family: $headerFontHeading;
-	font-size: 72px;
-    font-weight: 800;
-    line-height: 72px;
-    width: 500px;
-    margin: 72px 0 35px;
-    @extend .highlight;
-
-    &:before{
-    	width: 303px;
-    	top: 93px;
-    }
-}
-
-.header_text{
-	font-family: $headerFontText;
-	line-height: 24px;
-	font-size: 17px;
-	white-space: pre-line;
-	margin-bottom: 62px;
 }
 
 main.section{
