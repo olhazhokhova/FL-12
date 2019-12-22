@@ -61,7 +61,7 @@ ul.unsyle{
 }
 
 .heading-logo{
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 200;
 }
 
@@ -85,7 +85,7 @@ ul.unsyle{
   text-decoration: none;
   transition: all .3s ease;
   padding: 20px 12px;
-  font-size: 10px;
+  font-size: 13px;
   display: block;
 }
 
@@ -112,7 +112,7 @@ ul.unsyle{
 
 .title-post{
   margin-bottom: 10px;
-  font-size: 27px;
+  font-size: 30px;
   line-height: 1;
 }
 
@@ -121,7 +121,7 @@ ul.unsyle{
 }
 
 .short-description{
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 100;  
 }
 
@@ -150,6 +150,10 @@ ul.unsyle{
   font-size: 15px;
 }
 
+.main-posts-wrap .short-description{
+  opacity: 0.5;
+}
+
 .main-posts-wrap .post-date .date{
   font-size: 28px;
 }
@@ -166,7 +170,7 @@ ul.unsyle{
   transition: all linear 0.3s;
 }
 
-.main-posts-wrap .post-wrap:hover, .main-posts-wrap .post-img:hover{
+.main-posts-wrap .post-wrap:hover .title-post, .main-posts-wrap .post-img:hover{
   opacity: 0.7;
 }
 
@@ -187,7 +191,7 @@ ul.unsyle{
 }
 
 .news .title-news{
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .news .short-description{
@@ -198,10 +202,11 @@ ul.unsyle{
 .footer{
   background-color: #024161;
   margin-top: 15px;
-  font-size: 9px;
-  line-height: 12px;
+  font-size: 11px;
+  line-height: 13px;
   padding: 15px 20px;
   color: #fff;
+  font-weight: 100;
 }
 
 .footer p{
@@ -235,6 +240,10 @@ ul.unsyle{
     text-align: right;
   }
 
+  .main-posts-wrap > [class^=post-]:nth-child(even) .title-post{
+    padding-left: 30px;
+  }
+
   .main-posts-wrap > [class^=post-]:nth-child(even) .post-date{
     left: 10px;
   }
@@ -243,8 +252,16 @@ ul.unsyle{
     order: 2;
   }
 
+  .main-posts-wrap > [class^=post-]:nth-child(odd) .title-post{
+    padding-right: 30px;
+  }
+
   .main-posts-wrap .post-img{
     flex: 0 0 calc(50% - 2px);
+  }
+
+  .main-posts-wrap .post-img img{
+    min-height: 100%;
   }
 
   .main-posts-wrap .post-wrap{
@@ -315,10 +332,6 @@ ul.unsyle{
     margin: 20px auto 0;
   }
 
-  .short-description{
-    opacity: 0.5;
-  }
-
   .footer{
     text-align: center;
   }
@@ -338,8 +351,4 @@ ul.unsyle{
     margin-left: 2%;
     margin-top: 15px;
   }
-}
-
-@media (max-width: 480px){
-
 }
