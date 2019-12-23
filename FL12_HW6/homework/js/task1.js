@@ -1,4 +1,4 @@
-let	a, b, c, d,	x1,	x2,	x;
+let	a, b, c, d, x1, x2, x;
 const 
 	c2 = 2, 
 	c4 = 4, 
