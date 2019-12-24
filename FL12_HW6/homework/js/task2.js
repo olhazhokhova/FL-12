@@ -6,7 +6,7 @@ c = parseInt(prompt("Input triangle length side 'c'"));
 
 if(isNaN(a) || isNaN(b) || isNaN(c)){
 	console.log('Input values should be ONLY numbers');
-} else if(a === 0 || b === 0 || c === 0){
+} else if(a <= 0 || b <= 0 || c <= 0){
 	console.log('A triangle must have 3 sides with a positive definite length');
 } else if (a + b < c || b + c < a || c + a < b){
 	console.log('Triangle doesn’t exist');
