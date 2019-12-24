@@ -4,9 +4,9 @@ const
 	c4 = 4, 
 	c_1 = -1; 
 
-a = parseFloat(prompt("Input quadratic coefficient 'a'", ""));
-b = parseFloat(prompt("Input quadratic coefficient 'b'", ""));
-c = parseFloat(prompt("Input quadratic coefficient 'c'", ""));
+a = parseFloat(prompt("Input quadratic coefficient 'a'"));
+b = parseFloat(prompt("Input quadratic coefficient 'b'"));
+c = parseFloat(prompt("Input quadratic coefficient 'c'"));
 
 if(a === 0 || isNaN(a) || isNaN(b) || isNaN(c)){
 	console.log('Invalid input data');
