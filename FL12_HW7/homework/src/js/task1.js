@@ -22,11 +22,11 @@ if(!email){
 		let changePass = confirm('Do you want to change your password?');
 
 		if(changePass){
-			pass = prompt('Input password', '');
+			let pass2 = prompt('Input password', '');
 
-			if(!pass){
+			if(!pass2){
 				alert('Canceled');
-			} else if(email === user && pass === userPass || email === admin && pass === adminPass){
+			} else if(email === user && pass2 === userPass || email === admin && pass2 === adminPass){
 				let passNew = prompt('Input new password', '');
 
 				if(!passNew){
