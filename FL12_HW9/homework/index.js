@@ -78,8 +78,8 @@ const actors = [
 getArrayOfKeys(actors, 'name');
 
 //#8
-const minNumber = 30;
 function substitute(arr){
+	const minNumber = 30;
 	let arrNew = [];
 	mapArray(arr, function(el){
 		if(el > minNumber){
@@ -91,3 +91,14 @@ function substitute(arr){
 	return arrNew;
 }
 substitute([58, 14, 48, 2, 31, 29]);
+
+//#9
+function getPastDay(date, amountMoveDays){
+	let dateBefore = date;
+	dateBefore.setDate(date.getDate() - amountMoveDays);
+	return dateBefore.getDate();
+}
+const date = new Date(2019, 0, 2);
+getPastDay(date, 1);
+getPastDay(date, 2);
+getPastDay(date, 365);
