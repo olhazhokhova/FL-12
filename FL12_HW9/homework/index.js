@@ -87,7 +87,13 @@ getArrayOfKeys(actors, 'name');
 //#8
 function substitute(arr){
 	let arrNew = [];
-	mapArray(arr, elObj => arrKeys.push(elObj[key]));
+	mapArray(arr, function(el){
+		if(el > 30){
+			arrNew.push(el);
+		} else {
+			arrNew.push('*');
+		}
+	});
 	return arrNew;
 }
 substitute([58, 14, 48, 2, 31, 29]);
