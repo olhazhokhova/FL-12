@@ -1,10 +1,3 @@
-const 
-	two = 2,
-	three = 3,
-	five = 5,
-	seven = 7,
-	eight = 8;
-
 //#1
 function convert(arr){
 	for(let i = 0; i < arr.length; i++){
@@ -16,7 +9,7 @@ function convert(arr){
 	}
 	return arr;
 }
-convert(['1', two, three, '4']);
+convert(['1', 2, 3, '4']);
 
 
 //#2
@@ -25,8 +18,8 @@ function executeforEach(arr, callback){
 		callback(arr[i]);
 	}
 }
-executeforEach([1,two,three], function(el) { 
-	console.log(el * two) 
+executeforEach([1,2,3], function(el) { 
+	console.log(el * 2) 
 });
 
 
@@ -36,8 +29,8 @@ function mapArray(arr, callback){
 	executeforEach(arr, el => arrNew.push(callback(parseInt(el))));
 	return arrNew;
 }
-mapArray([two, '5', eight], function(el) {
-	return el + three;
+mapArray([2, '5', 8], function(el) {
+	return el + 3;
 });
 
 
@@ -47,8 +40,8 @@ function filterArray(arr, callback){
 	executeforEach(arr, el => callback(el) ? arrNew.push(el) : 0);
 	return arrNew;
 }
-filterArray([two, five, eight], function(el) {
-	return el % two === 0
+filterArray([2, 5, 8], function(el) {
+	return el % 2 === 0
 });
 
 
@@ -70,7 +63,7 @@ function makeListFromRange(arr){
 	}
 	return arrNew;
 }
-makeListFromRange([two, seven]);
+makeListFromRange([2, 7]);
 
 //#7
 function getArrayOfKeys(arr, key){
@@ -85,10 +78,11 @@ const actors = [
 getArrayOfKeys(actors, 'name');
 
 //#8
+const minNumber = 30;
 function substitute(arr){
 	let arrNew = [];
 	mapArray(arr, function(el){
-		if(el > 30){
+		if(el > minNumber){
 			arrNew.push(el);
 		} else {
 			arrNew.push('*');
