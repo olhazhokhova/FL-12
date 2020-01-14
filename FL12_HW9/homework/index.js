@@ -81,13 +81,7 @@ getArrayOfKeys(actors, 'name');
 function substitute(arr){
 	const minNumber = 30;
 	let arrNew = [];
-	mapArray(arr, function(el){
-		if(el > minNumber){
-			arrNew.push(el);
-		} else {
-			arrNew.push('*');
-		}
-	});
+	mapArray(arr, el => el > minNumber ? arrNew.push(el) : arrNew.push('*'));
 	return arrNew;
 }
 substitute([58, 14, 48, 2, 31, 29]);
@@ -106,8 +100,10 @@ getPastDay(date, 365);
 
 //#10
 function formatDate(date){
+	let hour = date.getHours();
+	let minute = date.getMinutes();
 	let dateNew = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
-	let time = ((date.getHours()<10?'0':'') + date.getHours()) + ':' + ((date.getMinutes()<10?'0':'') + date.getMinutes());
+	let time = (hour<10?'0':'' + hour) + ':' + (minute<10?'0':'' + minute);
 	return `${dateNew} ${time}`;
 }
 formatDate(new Date('6/15/2018 09:15:00'));
