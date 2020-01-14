@@ -97,7 +97,6 @@ getPastDay(date, 1);
 getPastDay(date, 2);
 getPastDay(date, 365);
 
-
 //#10
 function formatDate(date){
 	let dateNew = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
