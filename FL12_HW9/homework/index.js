@@ -102,3 +102,13 @@ const date = new Date(2019, 0, 2);
 getPastDay(date, 1);
 getPastDay(date, 2);
 getPastDay(date, 365);
+
+
+//#10
+function formatDate(date){
+	let dateNew = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+	let time = ((date.getHours()<10?'0':'') + date.getHours()) + ':' + ((date.getMinutes()<10?'0':'') + date.getMinutes());
+	return `${dateNew} ${time}`;
+}
+formatDate(new Date('6/15/2018 09:15:00'));
+formatDate(new Date());
