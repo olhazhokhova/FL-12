@@ -100,11 +100,10 @@ getPastDay(date, 365);
 
 //#10
 function formatDate(date){
-	let hour = date.getHours();
-	let minute = date.getMinutes();
 	let dateNew = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
-	let time = (hour<10?'0':'' + hour) + ':' + (minute<10?'0':'' + minute);
-	return `${dateNew} ${time}`;
+	let hour = (date.getHours() < 10 ? '0' : '') + date.getHours();
+	let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+	return `${dateNew} ${hour}:${minutes}`;
 }
 formatDate(new Date('6/15/2018 09:15:00'));
 formatDate(new Date());
