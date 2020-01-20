@@ -1,82 +1,59 @@
-class Fighter {
+function Fighter(arg) {
+ 
+	this._wins = 0;
+	this._losess = 0;
+	this._hpStart = arg.hp;
 
-	// wins = 0;
-	// losess = 0;
-	// hpStart = 0;
+	this._name = arg.name;
+	this._damage = arg.damage;
+	this._hp = arg.hp;
+	this._strength = arg.strength;
+	this._agility = arg.agility;
 
-	constructor(name, damage, hp, strength, agility) {
-		this._name = name;
-		this._damage = damage;
-		this._hp = hp;
-		this._hpStart = hp;
-		this._strength = strength;
-		this._agility = agility;
-	}
-
-	getName() {
+	this.getName = function() {
 		return this._name;
 	}
-	setName(newName){
-		this._name = newName;
-	}
-
-	getDamage() {
+	this.getDamage = function() {
 		return this._damage;
 	}
-	setDamage(newDamage){
-		this._damage = newDamage;
-	}
-
-	getHealth() {
+	this.getHealth = function() {
 		return this._hp;
 	}
-	setHealth(newHp){
+	this.setHealth = function(newHp){
 		this._hp = newHp;
 	}
-
-	getStrength() {
+	this.getStrength = function() {
 		return this._strength;
 	}
-	setStrength(newStrength){
-		this._strength = newStrength;
-	}
-
-	getAgility() {
+	this.getAgility = function() {
 		return this._agility;
 	}
-	setAgility(newAgility){
-		this._agility = newAgility;
-	}
-
-	//delete if not needed
-	getWin() {
+	this.getWin = function() {
 		return this._wins;
 	}
-	addWin(){
+	this.addWin = function(){
 		this._wins++;
 	}
-
-	//delete if not needed
-	getLoss() {
+	this.getLoss = function() {
 		return this._losess;
 	}
-	addLoss(){
+	this.addLoss = function(){
 		this._losess++;
 	}
 
-	logCombatHistory(){
+	this.logCombatHistory = function(){
 		console.log('Name: ' + this.getName() + ', Wins: ' + this.getWin() + ', Losses:' + this.getLoss());
 	}
 
-	heal(pointHealth){
+	this.heal = function(pointHealth){
 		let newHp = pointHealth + this.getHealth();
-		if(newHp > hpStart){
-			newHp = hpStart;
+		if(newHp > this._hpStart){
+			newHp = this._hpStart;
 		}
 		this.setHealth(newHp);
 	}
 
-	dealDamage(pointHealth){
+	this.dealDamage = function(pointHealth){
 		let newHp = this.getHealth() - pointHealth;
 		if(newHp < 0){
 			newHp = 0;
@@ -84,7 +61,7 @@ class Fighter {
 		this.setHealth(newHp);
 	}
 
-	attack(defender){
+	this.attack = function(defender){
 		let probability = 100 - (defender.getStrength() + defender.getAgility());
 		let randomSuccess = Math.floor(Math.random() * 101);
 		if(randomSuccess < probability){
@@ -123,10 +100,7 @@ function buttle(fighter1, fighter2){
 	}
 }
 
-// const fighter1 = new Fighter({name: 'Maximus', damage: 25, hp: 100, strength: 30, agility: 25});
-// const fighter2 = new Fighter({name: 'Commodus', damage: 25, hp: 90, strength: 25, agility: 30});
-
-const fighter1 = new Fighter('Maximus', 25, 100, 30, 25);
-const fighter2 = new Fighter('Commodus', 25, 90, 25, 30);
+const fighter1 = new Fighter({name: 'Maximus', damage: 25, hp: 100, strength: 30, agility: 25});
+const fighter2 = new Fighter({name: 'Commodus', damage: 25, hp: 90, strength: 25, agility: 30});
 
 buttle(fighter1, fighter2);
