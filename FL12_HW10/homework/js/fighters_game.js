@@ -75,11 +75,11 @@ function Fighter(arg) {
 
 function buttle(fighter1, fighter2){
 	if(fighter1.getHealth() <= 0){
-		console.log(fighter1 + " is dead and can't fight");
+		console.log(fighter1.getName() + " is dead and can't fight");
 	}
 
 	if(fighter2.getHealth() <= 0){
-		console.log(fighter2 + " is dead and can't fight");
+		console.log(fighter2.getName() + " is dead and can't fight");
 	}
 
 	while (fighter1.getHealth() > 0 && fighter2.getHealth() > 0){
