@@ -1,0 +1,38 @@
+ul{
+	list-style: none;
+	padding-left: 0;
+}
+
+ul li > div{
+	padding: 3px 0;
+	cursor: pointer;
+}
+
+ul li > div:hover{
+	background-color: #f2f0f4;
+}
+
+.folder + ul{
+	display: none;
+	padding-left: 20px;
+}
+
+.folder.open + ul, .folder.open + .empty{
+	display: block;
+}
+
+.material-icons{
+	color: #edbc0b;
+	font-size: 18px;
+	margin: -6px 5px 0 0;
+    vertical-align: middle;
+}
+
+.material-icons.file{
+	color: lightgrey;
+}
+
+.empty{
+	padding-left: 20px;
+	display: none;
+}
