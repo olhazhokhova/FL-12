@@ -37,120 +37,57 @@ const structure = [
 
 const rootNode = document.getElementById('root');
 
-const elUl = document.createElement('ul');
 
-for (let el of structure) {
-  const elLi = document.createElement('li');
-  const icon = document.createElement('i');
-  const div = document.createElement('div');
+function addFolderListener(div, icon){
+  div.classList.toggle('folder');
+  div.addEventListener('click', function() {
+    div.classList.toggle('open');
 
-  rootNode.appendChild(elUl);
+    if(div.classList.contains('open')){
+      icon.innerHTML = 'folder_open';
+    } else {
+      icon.innerHTML = 'folder';
+    }
+  });
+}
 
-  const textLi = document.createTextNode(el.title);
-  let newLi = elUl.appendChild(elLi);
-  div.appendChild(icon);
-  div.appendChild(textLi);
-  newLi.appendChild(div);
+function addTree(structure, node){
+  const elUl = document.createElement('ul');
 
-  icon.classList.add('material-icons');
-  const textIcon = document.createTextNode('folder');
-  icon.appendChild(textIcon);
-
-  if (el.folder) {
-    div.classList.toggle('folder');
-
-    div.addEventListener('click', function() {
-      div.classList.toggle('open');
-
-      if(div.classList.contains('open')){
-        icon.innerHTML = 'folder_open';
-      } else {
-        icon.innerHTML = 'folder';
-      }
-    });
-  }
-
- if (el.children) {
-  const elUlNew = document.createElement('ul');
-   for(let elem of el.children){
-    elLi.appendChild(elUlNew);
-    const elLiNew = document.createElement('li');
+  for (let el of structure) {
+    const elLi = document.createElement('li');
+    const icon = document.createElement('i');
     const div = document.createElement('div');
-    elUlNew.appendChild(elLiNew);
 
-    const iconFile = document.createElement('i');
-    const textLi = document.createTextNode(elem.title);
-    
-    elLiNew.appendChild(div);
-    div.appendChild(iconFile);
+    node.appendChild(elUl);
+
+    const textLi = document.createTextNode(el.title);
+    let newLi = elUl.appendChild(elLi);
+    div.appendChild(icon);
     div.appendChild(textLi);
-    iconFile.classList.add('material-icons');
+    newLi.appendChild(div);
 
-    if(elem.folder){
+    icon.classList.add('material-icons');
+
+    if (el.folder) {
       const textIcon = document.createTextNode('folder');
-      iconFile.appendChild(textIcon);
-      div.classList.add('folder');
+      icon.appendChild(textIcon);
+      addFolderListener(div, icon);
 
-      div.addEventListener('click', function() {
-        div.classList.toggle('open');
-        if(div.classList.contains('open')){
-          iconFile.innerHTML = 'folder_open';
-        } else {
-          iconFile.innerHTML = 'folder';
-        }
-      });
-
-      if (elem.children) {
-        const elUlS = document.createElement('ul');
-
-        for(let item of elem.children){
-          const elLiS = document.createElement('li');
-          const div = document.createElement('div');
-          elLiNew.appendChild(elUlS);
-          elUlS.appendChild(elLiS);
-
-          const iconFile = document.createElement('i');
-          const textLi = document.createTextNode(item.title);
-          
-          elLiS.appendChild(div);
-          div.appendChild(iconFile);
-          div.appendChild(textLi);
-          iconFile.classList.add('material-icons');
-
-          if(item.folder){
-            const textIcon = document.createTextNode('folder');
-            iconFile.appendChild(textIcon);
-            div.classList.add('folder');
-
-            div.addEventListener('click', function() {
-              div.classList.toggle('open');
-              if(div.classList.contains('open')){
-                iconFile.innerHTML = 'folder_open';
-                const i = document.createElement('i');
-                i.innerHTML = 'Folder is empty'
-                elLiS.appendChild(i);
-                i.classList.add('empty');
-              } else {
-                iconFile.innerHTML = 'folder';
-              }
-            });
-          } else {
-            const textIcon = document.createTextNode('insert_drive_file');
-            iconFile.appendChild(textIcon);
-            iconFile.classList.add('file');
-          }
-        }
+      if (el.children) {
+        addTree(el.children, elLi);
       } else {
         const i = document.createElement('i');
         i.innerHTML = 'Folder is empty'
-        elLiNew.appendChild(i);
+        elLi.appendChild(i);
         i.classList.add('empty');
       }
     } else {
       const textIcon = document.createTextNode('insert_drive_file');
-      iconFile.appendChild(textIcon);
-      iconFile.classList.add('file');
+      icon.appendChild(textIcon);
+      icon.classList.add('file');
     }   
-   }
   }
 }
+
+addTree(structure, rootNode);
